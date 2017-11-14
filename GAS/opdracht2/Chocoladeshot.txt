@@ -1,0 +1,27 @@
+Class Chocoladeshot:
+//Stock van Chocoladeshot?
+int Chocoladeshot.soort 
+const int Chocoladeshot.prijs=1 (aankoop? verkoop?)
+int Chocoladeshot.vervaldatum (misschien een countdown?)
+
++CreateChocoladeshot(in vervaldatum:int, in soort:int, out succes:boolean)
+//maakt een nieuwe chocoladeshot aan, voeg toe aan ADT.
+preconditie:geen
+postconditie:nu zit de gemaakte chocoladeshot in de ADT, geeft succes terug.
+
++destroyChocoladeshot(in vervaldatum:int, out succes:boolean)
+//verwijder de chocoladeshot met de gegeven vervaldatum
+preconditie:geen
+postconditie:alle chocoladeshot met de vervaldatum gegeven is verwijderd uit ADT, geeft succes terug.
+
++getlength(in soort:int=None){query}
+//geeft de aantal van de gegeven soort Chocoladeshot terug, als geen soort gespecifieerd, geef lengte van alles weer
+preconditie:geen
+postconditie:geeft de aantal van Chocoladeshot van gegeven soort terug.
+
++retrieve(in vervaldatum:int, out succes,boolean){query}
+//geeft de aantal Chocoladeshot terug met de gegeven vervaldatum
+preconditie:geen
+postconditie:geeft de aantal Chocoladeshot terug met de gegeven vervaldatum en succes terug.
+
+

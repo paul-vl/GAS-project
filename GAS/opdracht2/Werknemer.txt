@@ -1,0 +1,20 @@
+
+Class werknemer:
+
+int werknemer.credit
+string werknemer.id, werknemer.voornaam, werknemer.achternaam
+
++Recruit(in voornaam:string, in achternaam:string, in id:String(?)=None, in credit:int, out succes:boolean)
+//a new chanllenger.
+preconditie:geen
+postconditie:voeg een nieuwe werknemer aan de ADT, met naam gegeven en id al dan niet automatisch en credit erbij, succes terug.
+
++fire(in id:string, out succes:boolean)
+//really sad
+preconditie:de gegeven ID staat in ADT
+postconditie:deze werknemer wordt ontslagen.
+
++change(in id:string, in credittochange:int, out succes:boolean)
+//nice
+preconditie:de gegeven ID staat in ADT
+postconditie:deze werknemers credit wordt vervangen door de gegeven integer.

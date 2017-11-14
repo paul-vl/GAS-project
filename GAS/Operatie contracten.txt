@@ -1,0 +1,117 @@
+dubble gelinkte ketting:
+Contract:
++isEmpty():boolean  {query}
+//bepaalt of een ketting leeg is
+precondities: geen
+postcondities: geeft true als de ketting leeg is een vals als de ketting niet leeg is.
+
++getLength():integer {query}
+//Bepaalt de lengte van de ketting
+precondities:geen
+postcondities: geeft de lengte van de ketting als integer terug.
+
++insert(in newitem:kettingitemtype(node), in index:integer, out succes:boolean)
+//voeg een nieuwe item toe aan de ketting
+precondities:geen(voorzorgen dat alles kan)
+postcondities: Als de toevoeg lukt, dan wordt op de index-ste plaats een nieuwe item newitem toegevoegd aan de ketting.
+
++delete(in index:integer, out succes:boolean)
+//verwijderd een element uit de ketting
+preconditie:de index moet tussen 1 en de lengte van de ketting staan
+postcondities:als de verwijdering lukt, dan wordt de index-ste element verwijderd uit de ketting.
+
++retrieve(in index:integer, out dataitem:kettingitemtype(node), out succes:boolean) {query}
+//geeft info over de index-ste element
+preconditie:de index moet tussen 1 en de lengte van de ketting staan
+postcondities:als de retrieve lukt, wordt de item die op de index-ste plaats staat teruggegeven.
+
++traverse(out succes:boolean)
+//loop de ketting door
+precondities:geen
+postcondities:geeft elke element als de ketting niet leeg is en geeft true, anders print de ketting is leeg en geeft false
+
+
+
+
+
+
+
+
+
+
+
+
+
+queue:
+Contract:
++isEmpty():boolean  {query}
+//bepaalt of een queue leeg is
+precondities: geen
+postcondities: geeft true als de queue leeg is een vals als de queue niet leeg is.
+
++getLength():integer {query}
+//Bepaalt de lengte van de queue
+precondities:geen
+postcondities: geeft de lengte van de queue als integer terug.
+
++insert(in newitem:queueitemtype(node), out succes:boolean)
+//voeg een nieuwe item toe aan de queue
+precondities:geen
+postcondities: Als de toevoeg lukt, dan wordt op de laatste plaats een nieuwe item newitem toegevoegd aan de queue.
+
++delete(out succes:boolean)
+//verwijderd een element uit de queue
+preconditie:de queue is niet leeg
+postcondities:als de verwijdering lukt, dan wordt de eerste element verwijderd uit de queue.
+
++gettop(out dataitem:queueitemtype(node), out succes:boolean) {query}
+//geeft info over de eerste element
+preconditie:de queue is niet leeg
+postcondities:als de retrieve lukt, wordt de item die op de eerste plaats staat teruggegeven.
+
++traverse(out succes:boolean)
+//loop de queue door
+precondities:geen
+postcondities:geeft elke element van eerste tot laatste in de rij als de queue niet leeg is en geeft true, anders print de queue is leeg en geeft false
+
+
+
+
+
+
+
+
+
+
+
+binare zoek boom:
+Contract:
++isEmpty():boolean  {query}
+//bepaalt of een binaire boom leeg is
+precondities: geen
+postcondities: geeft true als de binaire boom leeg is een vals als de binaire boom niet leeg is.
+
++getLength():integer {query}
+//Bepaalt de lengte van de binaire boom
+precondities:geen
+postcondities: geeft de aantal elementen van de binaire boom als integer terug.
+
++insert(in newitem:binaire boomitemtype, out succes:boolean)
+//voeg een nieuwe item toe aan de binaire boom
+precondities:geen
+postcondities: Als de toevoeg lukt, dan wordt op de geschikte plaats een nieuwe item newitem toegevoegd aan de binaire boom.
+
++delete(in item:ingeter out succes:boolean)
+//verwijderd een element uit de binaire boom
+preconditie:de binaire boom is niet leeg
+postcondities:als de verwijdering lukt, dan wordt de juiste item verwijderd uit de binaire boom.
+
++retrieve(in index:integer out dataitem:binaireboomitemtype, out succes:boolean) {query}
+//geeft info over de eerste element
+preconditie:de binaire boom is niet leeg
+postcondities:als de retrieve lukt, wordt de item die op de index-ste plaats staat in de array voorstelling teruggegeven.
+
++inorder traverse(out succes:boolean)
+//loop de binaire boom door in inorder traverse
+precondities:geen
+postcondities:geeft elke element in inorder als de binaire boom niet leeg is en geeft true, anders print de binaire boom is leeg en geeft false

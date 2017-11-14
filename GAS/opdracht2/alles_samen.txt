@@ -1,0 +1,264 @@
+Class Chocolademelk:
+//deze class zal als onderdelen gemaakt worden voor bestellingen.
+int Chocolademelk.prijs
+string Chocolademelk.id
+Contracten:
+
++CreateChocolademelk(in ID:string，in Prijs:int = 2, out succes=boolean)
+//maakt een Chocolademelk aan met prijs en id.
+preconditie:geen
+postconditie:geeft een succes. voeg deze toe aan de lijst van chocolatemelk.
+
++prijswijziging(in Prijswijziging:int,in ID=string, out succes:boolean)
+//voeg de originele prijs met de prijswijziging toe voor de Chocolademelk met ID gegeven
+preconditie:Chocolademelk.prijs-prijswijziging>=2
+postconditie:veranderd de prijs en geeft weer of dat gelukt is.
+
++destroyChocolademelk(in ID:string, out succes:boolean)
+//verwijderd de chocolatemelk met ID gegeven
+preconditie:geen
+postconditie:verwijderd de chocolatemelk en geeft succes terug.
+
++retrieve(in ID:string, out Chocolademelk:Chocolademelk, out succes=boolean){query}
+//geeft de chocolatemelk terug
+preconditie:ID bestaat in de ADT
+postconditie:geeft de chocolatemelk terug als dat gevonden is
+
+
+
+
+
+
+
+Class Chocoladeshot:
+//Stock van Chocoladeshot?
+int Chocoladeshot.soort 
+const int Chocoladeshot.prijs=1 (aankoop? verkoop?)
+int Chocoladeshot.vervaldatum (misschien een countdown?)
+
++CreateChocoladeshot(in vervaldatum:int, in soort:int, out succes:boolean)
+//maakt een nieuwe chocoladeshot aan, voeg toe aan ADT.
+preconditie:geen
+postconditie:nu zit de gemaakte chocoladeshot in de ADT, geeft succes terug.
+
++destroyChocoladeshot(in vervaldatum:int, out succes:boolean)
+//verwijder de chocoladeshot met de gegeven vervaldatum
+preconditie:geen
+postconditie:alle chocoladeshot met de vervaldatum gegeven is verwijderd uit ADT, geeft succes terug.
+
++getlength(in soort:int=None){query}
+//geeft de aantal van de gegeven soort Chocoladeshot terug, als geen soort gespecifieerd, geef lengte van alles weer
+preconditie:geen
+postconditie:geeft de aantal van Chocoladeshot van gegeven soort terug.
+
++retrieve(in vervaldatum:int, out succes,boolean){query}
+//geeft de aantal Chocoladeshot terug met de gegeven vervaldatum
+preconditie:geen
+postconditie:geeft de aantal Chocoladeshot terug met de gegeven vervaldatum en succes terug.
+
+
+
+
+
+
+Class Honing:
+//Stock van Honing?
+const double Honing.prijs=0.5
+int Honing.vervaldatum
+
++Createhoning(in vervaldatum:int, out succes:boolean)
+//maakt een nieuwe honing aan, voeg toe aan ADT.
+preconditie:geen
+postconditie:nu zit de gemaakte honing in de ADT, geeft succes terug.
+
++destroyhoning(in vervaldatum:int, out succes:boolean)
+//verwijder de honing met de gegeven vervaldatum
+preconditie:geen
+postconditie:alle honing met de vervaldatum gegeven is verwijderd uit ADT, geeft succes terug.
+
++getlength(){query}
+//geeft de aantal honing terug.
+preconditie:geen
+postconditie:geeft de aantal van honing van gegeven soort terug.
+
++retrieve(in vervaldatum:int, out succes,boolean){query}
+//geeft de aantal honing terug met de gegeven vervaldatum
+preconditie:geen
+postconditie:geeft de aantal honing terug met de gegeven vervaldatum en succes terug.
+
+
+
+
+
+
+Class chilipeper:
+//Stock van chilipeper?
+const double chilipeper.prijs=0.25
+int chilipeper.vervaldatum
+
++Createchilipeper(in vervaldatum:int, out succes:boolean)
+//maakt een nieuwe chilipeper aan, voeg toe aan ADT.
+preconditie:geen
+postconditie:nu zit de gemaakte chilipeper in de ADT, geeft succes terug.
+
++destroychilipeper(in vervaldatum:int, out succes:boolean)
+//verwijder de chilipeper met de gegeven vervaldatum
+preconditie:geen
+postconditie:alle chilipeper met de vervaldatum gegeven is verwijderd uit ADT, geeft succes terug.
+
++getlength(){query}
+//geeft de aantal chilipeper terug.
+preconditie:geen
+postconditie:geeft de aantal van chilipeper van gegeven soort terug.
+
++retrieve(in vervaldatum:int, out succes,boolean){query}
+//geeft de aantal chilipeper terug met de gegeven vervaldatum
+preconditie:geen
+postconditie:geeft de aantal chilipeper terug met de gegeven vervaldatum en succes terug.
+
+
+
+
+
+
+Class marshmallow:
+//Stock van marshmallow?
+const double marshmallow.prijs=0.75
+int marshmallow.vervaldatum
+
++Createmarshmallow(in vervaldatum:int, out succes:boolean)
+//maakt een nieuwe marshmallow aan, voeg toe aan ADT.
+preconditie:geen
+postconditie:nu zit de gemaakte marshmallow in de ADT, geeft succes terug.
+
++destroymarshmallow(in vervaldatum:int, out succes:boolean)
+//verwijder de marshmallow met de gegeven vervaldatum
+preconditie:geen
+postconditie:alle marshmallow met de vervaldatum gegeven is verwijderd uit ADT, geeft succes terug.
+
++getlength(){query}
+//geeft de aantal marshmallow terug.
+preconditie:geen
+postconditie:geeft de aantal van marshmallow van gegeven soort terug.
+
++retrieve(in vervaldatum:int, out succes,boolean){query}
+//geeft de aantal marshmallow terug met de gegeven vervaldatum
+preconditie:geen
+postconditie:geeft de aantal marshmallow terug met de gegeven vervaldatum en succes terug.
+
+
+
+
+
+
+class gebruiker:
+string gebruiker.ID
+string gebruiker.voornaam
+string gebruiker.achternaam
+string gebruiker.e-mailadres
+
++Creategebruiker(in ID:string, in voornaam:string, in achternaam:string, in email:string, out succes:boolean)
+//nieuwe gebruiker aanmaken
+preconditie:geen
+postconditie:voeg de nieuwe gebruiker die aangemaakt is aan de ADT toe
+
++Destroygebruiker(in email:string, out succes:boolean)
+//verwijdering
+preconditie:geen
+postconditie:verwijderd de gebruiker met gegeven email uit de ADT
+
++getlength(){query}
+preconditie:geen
+postconditie:geef de aantal gebruikers weer
+
++retrieve(in email:string,out gebruiker:gebruiker, out succes:boolean){query}
+preconditie:de email staat in ADT
+postconditie:geeft de gebruikers data terug met de gegeven email.
+
++datawijziging(in IDtochange:string=None,in voornaam:string=None, in achternaam:string=None, in email:string, out succes=boolean)
+//data verandering..
+preconditie:email bestaat in ADT
+postconditie:verander de inhoud van ID, voornaam,achternaam als gegeven is.
+
+
+
+
+
+
+class Stock:
+//een verzameling van allelei soorten ADT.
+
+int stock.warning=0
+
++CreatenewStock(in naam:string,in stocklisttoadd:other_ADT out succes:boolean)
+//voeg een andere ADT toe aan de ADT 
+preconditie:geen
+postconditie:de ADT wordt toegevoegd aan de ADT stock, met de naam gegeven. succes terug.
+
++DestroyStock(in naam:string, out succes:boolean)
+//verwijder een andere ADT
+preconditie:de naam staat in ADT stock
+postconditie:de stocklist met naam gegeven wordt verwijderd, succes terug.
+
++getlength(in name:string){query}
+//dat is dubble met degene van boven, maar voor het geval dat er geen implementatie bij de stocklist is van getlength.
+preconditie:naam staat in ADT
+postconditie:geeft de aantal stock terug van naam.
+
++show(){query}
+preconditie:geen
+postconditie:print alle namen van degene die in de ADT staat met de stockhoeveelheid.
+als een van de stock onder de warning ligt, print warningtext.
+
++setwarning(in warning:int)
+preconditie:geen
+postconditie:set een warning getal aan.
+
+
+
+
+
+
+Class bestellingen:
+
+string bestelling.ID
+int bestelling.timestamp
+vector<string> bestelling.productID
+int bestelling.gehaald
+
++Createbestelling(in ID:string, in timestamp:int,in chocolatemelk:chocolatemelk, out succes:boolean)
+preconditie:timestamp is geldig, string is in gebruiker.
+postconditie:maakt een nieuwe bestelling aanmaken, met ID gegeven, en een lijst van productID toevoegen(meerdere producten).
+daarna de bestellingen in de ADT plaatsen volgens de timestamp. gehaald wordt initieel =0. succes terug.
+
++Wisbestellingen(out succes:boolean)
+preconditie:geen
+postconditie:wis alle bestelling, om plaats vrij te maken. succes terug.
+
++Gehaald(in timestamp, in ID:string)
+preconditie: er is een bestelling met ID gegeven op timestamp gegeven.
+postconditie:veranderd de gevonden bestellings gehaald naar 1
+
+
+
+
+
+Class werknemer:
+
+int werknemer.credit
+string werknemer.id, werknemer.voornaam, werknemer.achternaam
+
++Recruit(in voornaam:string, in achternaam:string, in id:String(?)=None, in credit:int, out succes:boolean)
+//a new chanllenger.
+preconditie:geen
+postconditie:voeg een nieuwe werknemer aan de ADT, met naam gegeven en id al dan niet automatisch en credit erbij, succes terug.
+
++fire(in id:string, out succes:boolean)
+//really sad
+preconditie:de gegeven ID staat in ADT
+postconditie:deze werknemer wordt ontslagen.
+
++change(in id:string, in credittochange:int, out succes:boolean)
+//nice
+preconditie:de gegeven ID staat in ADT
+postconditie:deze werknemers credit wordt vervangen door de gegeven integer.

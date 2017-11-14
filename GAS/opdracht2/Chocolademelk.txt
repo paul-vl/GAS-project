@@ -1,0 +1,26 @@
+Class Chocolademelk:
+//deze class zal als onderdelen gemaakt worden voor bestellingen.
+int Chocolademelk.prijs
+string Chocolademelk.id
+Contracten:
+
++CreateChocolademelk(in ID:string£¬in Prijs:int = 2, out succes=boolean)
+//maakt een Chocolademelk aan met prijs en id.
+preconditie:geen
+postconditie:geeft een succes. voeg deze toe aan de lijst van chocolatemelk.
+
++prijswijziging(in Prijswijziging:int,in ID=string, out succes:boolean)
+//voeg de originele prijs met de prijswijziging toe voor de Chocolademelk met ID gegeven
+preconditie:Chocolademelk.prijs-prijswijziging>=2
+postconditie:veranderd de prijs en geeft weer of dat gelukt is.
+
++destroyChocolademelk(in ID:string, out succes:boolean)
+//verwijderd de chocolatemelk met ID gegeven
+preconditie:geen
+postconditie:verwijderd de chocolatemelk en geeft succes terug.
+
++retrieve(in ID:string, out Chocolademelk:Chocolademelk, out succes=boolean){query}
+//geeft de chocolatemelk terug
+preconditie:ID bestaat in de ADT
+postconditie:geeft de chocolatemelk terug als dat gevonden is
+

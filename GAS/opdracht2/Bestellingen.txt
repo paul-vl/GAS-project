@@ -1,0 +1,20 @@
+Class bestellingen:
+
+string bestelling.ID
+int bestelling.timestamp
+vector<string> bestelling.productID
+int bestelling.gehaald
+
++Createbestelling(in ID:string, in timestamp:int,in chocolatemelk:chocolatemelk, out succes:boolean)
+preconditie:timestamp is geldig, string is in gebruiker.
+postconditie:maakt een nieuwe bestelling aanmaken, met ID gegeven, en een lijst van productID toevoegen(meerdere producten).
+daarna de bestellingen in de ADT plaatsen volgens de timestamp. gehaald wordt initieel =0. succes terug.
+
++Wisbestellingen(out succes:boolean)
+preconditie:geen
+postconditie:wis alle bestelling, om plaats vrij te maken. succes terug.
+
++Gehaald(in timestamp, in ID:string)
+preconditie: er is een bestelling met ID gegeven op timestamp gegeven.
+postconditie:veranderd de gevonden bestellings gehaald naar 1
+

@@ -1,0 +1,25 @@
+Class Honing:
+//Stock van Honing?
+const double Honing.prijs=0.5
+int Honing.vervaldatum
+
++Createhoning(in vervaldatum:int, out succes:boolean)
+//maakt een nieuwe honing aan, voeg toe aan ADT.
+preconditie:geen
+postconditie:nu zit de gemaakte honing in de ADT, geeft succes terug.
+
++destroyhoning(in vervaldatum:int, out succes:boolean)
+//verwijder de honing met de gegeven vervaldatum
+preconditie:geen
+postconditie:alle honing met de vervaldatum gegeven is verwijderd uit ADT, geeft succes terug.
+
++getlength(){query}
+//geeft de aantal honing terug.
+preconditie:geen
+postconditie:geeft de aantal van honing van gegeven soort terug.
+
++retrieve(in vervaldatum:int, out succes,boolean){query}
+//geeft de aantal honing terug met de gegeven vervaldatum
+preconditie:geen
+postconditie:geeft de aantal honing terug met de gegeven vervaldatum en succes terug.
+

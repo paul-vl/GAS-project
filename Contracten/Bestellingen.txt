@@ -1,0 +1,38 @@
+Class bestellingen:
+ADT tabel
+string bestelling.ID
+int bestelling.timestamp
+vector<string> bestelling.productID
+int bestelling.gehaald
+int bestelling.tijdnodig
+int bestelling.klaar
+
++Createbestelling(in ID:string, in timestamp:int,in chocolatemelk:chocolatemelk, out succes:boolean)
+preconditie:timestamp is geldig, string is in gebruiker.
+postconditie:maakt een nieuwe bestelling aanmaken, met ID gegeven, en een lijst van productID toevoegen(meerdere producten).
+daarna de bestellingen in de ADT plaatsen volgens de timestamp. gehaald wordt initieel =0. succes terug. De bestellingen worden enkel toegevoegd als de gebruiker klaar is met alles. anders wordt de bestelling automatisch verwijderd als de gebruiker niet meer wilt.
+
++Wisbestellingen(out succes:boolean)
+preconditie:geen
+postconditie:wis alle bestelling, om plaats vrij te maken. succes terug.
+
++Gehaald(in timestamp, in ID:string)
+preconditie: er is een bestelling met ID gegeven op timestamp gegeven.
+postconditie:veranderd de gevonden bestellings gehaald naar 1
+
++klaar(in timestamp, in ID:string)
+preconditie:er is een bestelling met ID gegeven op timestamp gegeven.
+postconditie:veranderd de gevonden bestellings klaar naar 1
+
++Bestedencredit(in ID:string, in:timestamp:int, out credit:int, out succes:boolean)
+preconditie: er is een bestelling met ID gegeven op timestamp gegeven.
+postconditie:deze telt creditten van de chocolademelk op en geeft terug, succes terug.
+
++Show(in ID:string, in:timestamp:int){query}
+preconditie: er is een bestelling met ID gegeven op timestamp gegeven.
+postconditie: deze print de inhoud van de chocolademelk besteld, totale prijs van de bestelling en de credit nodig van de bestelling af te maken, eventueel de benodigde tijd als een werknemer dat genomen heeft.
+
++Stockverkocht(out ingredienten:map <string,int>,out succes:boolean)
+preconditie:geen
+postconditie:deze geeft de totale ingredienten van alle chocolademelk in deze bestelling terug.
+

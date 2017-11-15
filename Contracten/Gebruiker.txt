@@ -1,0 +1,31 @@
+class gebruiker:
+ADT tabel/lijst(hangt af van met id werken of met email)
+string gebruiker.ID
+string gebruiker.voornaam
+string gebruiker.achternaam
+string gebruiker.e-mailadres
+
++Creategebruiker(in ID:string, in voornaam:string, in achternaam:string, in email:string, out succes:boolean)
+//nieuwe gebruiker aanmaken
+preconditie:geen
+postconditie:voeg de nieuwe gebruiker die aangemaakt is aan de ADT toe
+
++Destroygebruiker(in email:string, out succes:boolean)
+//verwijdering
+preconditie:geen
+postconditie:verwijderd de gebruiker met gegeven email uit de ADT
+
++getlength(){query}
+preconditie:geen
+postconditie:geef de aantal gebruikers weer
+
++retrieve(in email:string,out gebruiker:gebruiker, out succes:boolean){query}
+preconditie:de email staat in ADT
+postconditie:geeft de gebruikers data terug met de gegeven email.
+
++datawijziging(in IDtochange:string=None,in voornaam:string=None, in achternaam:string=None, in email:string, out succes=boolean)
+//data verandering..
+preconditie:email bestaat in ADT
+postconditie:verander de inhoud van ID, voornaam,achternaam als gegeven is.
+
+

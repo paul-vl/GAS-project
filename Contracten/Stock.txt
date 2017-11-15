@@ -1,0 +1,35 @@
+class Stock:
+//een verzameling van allelei soorten ADT.
+ADT tabel
+int stock.warning=0
+
++CreatenewStock(in naam:string,in stocklisttoadd:other_ADT out succes:boolean)
+//voeg een andere ADT toe aan de ADT 
+preconditie:geen
+postconditie:de ADT wordt toegevoegd aan de ADT stock, met de naam gegeven. succes terug.
+
++DestroyStock(in naam:string, out succes:boolean)
+//verwijder een andere ADT
+preconditie:de naam staat in ADT stock
+postconditie:de stocklist met naam gegeven wordt verwijderd, succes terug.
+
++Verkocht(in bestellingen:bestellingen, out succes:boolean)
+//verwijder dingens uit de Stock omdat het verkocht is.
+preconditie:geen
+postconditie:de stock die gebruikt wordt wordt verminderd met de hoeveelheid die gebruikt wordt
+
++getlength(in name:string){query}
+//dat is dubble met degene van boven, maar voor het geval dat er geen implementatie bij de stocklist is van getlength.
+preconditie:naam staat in ADT
+postconditie:geeft de aantal stock terug van naam.
+
++show(){query}
+preconditie:geen
+postconditie:print alle namen van degene die in de ADT staat met de stockhoeveelheid.
+als een van de stock onder de warning ligt, print warningtext.
+
++setwarning(in warning:int)
+preconditie:geen
+postconditie:set een warning getal aan.
+
+

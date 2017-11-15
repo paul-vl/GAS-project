@@ -1,0 +1,39 @@
+
+Class werknemer:
+ADT lijst/tabel(met id of naam werken
+)
+int werknemer.credit
+string werknemer.id, werknemer.voornaam, werknemer.achternaam
+int werknemer.working
+
++Recruit(in voornaam:string, in achternaam:string, in id:String(?)=None, in credit:int, out succes:boolean)
+//a new chanllenger.
+preconditie:geen
+postconditie:voeg een nieuwe werknemer aan de ADT, met naam gegeven en id al dan niet automatisch en credit erbij, succes terug.
+
++fire(in id:string, out succes:boolean)
+//really sad
+preconditie:de gegeven ID staat in ADT
+postconditie:deze werknemer wordt ontslagen.
+
++change(in id:string, in credittochange:int, out succes:boolean)
+//nice
+preconditie:de gegeven ID staat in ADT
+postconditie:deze werknemers credit wordt vervangen door de gegeven integer.
+
++show(){query}
+preconditie:geen
+postconditie:print alle werknemer met hun id en namen en credit.
+
++retrieve(in id:string, out succes boolean)
+preconditie:id bestaat
+postconditie: geeft alle info over de werknemer met id weer
+
++takebestelling(in id:string,in bestellingen:bestellingen, out succes:boolean)
+preconditie:id bestaat en aant werken
+postconditie: geef de bestelling aan ene werknemer, hij zal vanaf dat tijdstip beginnen met de bestellingen af te werken. verander de werknemers working naar 1
+
++bestellinggedaan(in id:string, out bestellingen:bestellingen, out succes:boolean)
+preconditie:id bestaat en aant werken =1
+postconditie: verander de bestellings status naar klaar
+

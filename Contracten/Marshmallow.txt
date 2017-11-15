@@ -1,0 +1,27 @@
+Class marshmallow:
+//Stock van marshmallow?
+ADT tabel
+const double marshmallow.prijs=0.75
+int marshmallow.vervaldatum
+
++Createmarshmallow(in vervaldatum:int,  in hoeveelheid:int,out succes:boolean)
+//maakt een nieuwe marshmallow aan, voeg toe aan ADT.
+preconditie:geen
+postconditie:nu zit de gemaakte marshmallow in de ADT, geeft succes terug.
+
++destroymarshmallow(in vervaldatum:int, out succes:boolean)
+//verwijder de marshmallow met de gegeven vervaldatum
+preconditie:geen
+postconditie:alle marshmallow met de vervaldatum gegeven is verwijderd uit ADT, geeft succes terug.
+
++getlength(){query}
+//geeft de aantal marshmallow terug.
+preconditie:geen
+postconditie:geeft de aantal van marshmallow van gegeven soort terug.
+
++retrieve(in vervaldatum:int, out succes,boolean){query}
+//geeft de aantal marshmallow terug met de gegeven vervaldatum
+preconditie:geen
+postconditie:geeft de aantal marshmallow terug met de gegeven vervaldatum en succes terug.
+
+

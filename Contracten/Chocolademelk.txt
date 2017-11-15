@@ -1,0 +1,35 @@
+Class Chocolademelk:
+ADT tabel(als id is string)/ADT lijst(als id is integer).
+//deze class zal als onderdelen gemaakt worden voor bestellingen. per bestelling wordt een nieuwe ADT gemaakt en aangehecht aan bestellingen
+
+int Chocolademelk.prijs
+string Chocolademelk.id
+int Chocolademelk.credit
+map<string,int> Chocolademelk.ingredienten
+
+Contracten:
+
++CreateChocolademelk(in ID:string in Prijs:int = 2, out succes=boolean)
+//maakt een Chocolademelk aan met prijs en id.
+preconditie:geen
+postconditie:geeft een succes. voeg deze toe aan de lijst van chocolatemelk.
+
++prijswijziging(in ingredienten:map<string,int>,in ID=string, out succes:boolean)
+//voeg de originele prijs met de prijswijziging toe voor de Chocolademelk met ID gegeven
+preconditie:Chocolademelk.prijs-prijswijziging>=2
+postconditie:veranderd de prijs door berekening te doen met de ingredienten toegevoegd.(mss ook credit wijziging?), Chocolademelk.ingredienten wordt eveneens gewijzigd.
+
++creditwijziging(in creditwijziging:int, in ID:string, out succes:boolean)
+preconditie:id bestaat
+postconditie:wijzig de credit van een chocolademelk, succesterug.
+
++destroyChocolademelk(in ID:string, out succes:boolean)
+//verwijderd de chocolatemelk met ID gegeven
+preconditie:geen
+postconditie:verwijderd de chocolatemelk en geeft succes terug.
+
++retrieve(in ID:string, out Chocolademelk:Chocolademelk, out succes=boolean){query}
+//geeft de chocolatemelk terug
+preconditie:ID bestaat in de ADT
+postconditie:geeft de chocolatemelk terug als dat gevonden is
+

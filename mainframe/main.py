@@ -4,6 +4,46 @@ from adttabel import *
 class gebruiker:
     pass
 
+class bestelling:
+    timestamp=0
+    product=tabel()
+
+    def __init__(self,timestamp):
+        pass
+    def insert(self,item):
+        pass
+    pass
+
+class chocolademelk:
+    prijs=0
+    id=0
+    credit=0
+    bruin=0
+    wit=0
+    zwart=0
+    melk=0
+    chilipeper=0
+    honing=0
+    marshmallow=0
+
+    def __init__(self,zwart=0,wit=0,bruin=0,melk=0,chilipeper=0,honing=0,marshmallow=0):
+        self.zwart=zwart
+        self.wit=wit
+        self.melk=melk
+        self.bruin=bruin
+        self.chilipeper=chilipeper
+        self.honing=honing
+        self.marshmallow=marshmallow
+        self.prijs=1+zwart*1+wit*1+bruin*1+melk*1+marshmallow*0.75+chilipeper*0.25+honing*0.5
+
+    def addingredient(self,chiliperper=0,honing=0,marshmallow=0):
+        self.chilipeper+=chiliperper
+        self.honing+=honing
+        self.marshmallow+=marshmallow
+        self.prijs+=chiliperper*0.25+marshmallow*0.75+honing*0.5
+
+
+
 class stack:
     content=[]
 
@@ -22,11 +62,56 @@ class stack:
         return None
 
 class queue:
-    pass
 
+    def enqueue(self,item):
+        pass
 
-def ordermenu(user):
-    pass
+    def dequeue(self,item):
+        pass
+
+def ordermenu(account,time):
+    chocos=tabel()
+    chocoavailable=["1) zwartchoco","2) witchoco","3) melkchoco","4) bruinchoco"]
+    dezebestelling=bestelling(time)
+    print("Welkom ",account.firstname," ", account.lastname,", wat wilt u bestellen?")
+    while True:
+        print("U heeft keuzes tussen 4 verschillende soorten chocolade")
+        choco=input("1) zwartchoco 2)witchoco 3)melkchoco 4)bruinchoco")
+        while choco not in {"1","2","3","4"}:
+            choco = input("1) zwartchoco 2)witchoco 3)melkchoco 4)bruinchoco")
+        chocos.insert(int(choco),1)
+        while 4-chocos.size()>0:
+            print("u kunt nog een mix maken met de andere ", 4-chocos.size(), "chocolade(s)")
+            for i in range (4):
+                if i not in chocos.content:
+                    print(chocoavailable[i])
+            print("5) nee bedankt")
+            choco = input()
+            if choco=="5":
+                break
+            while choco not in {"1", "2", "3", "4"}:
+                continue
+            chocos.insert(int(choco),1)
+        thismelk=chocolademelk(chocos.retrieve(1),chocos.retrieve(2),chocos.retrieve(3),chocos.retrieve(4))
+
+        print("alright, wilt u nog extra toppings op de chocomelk?")
+        while True:
+            topping=input("1) extra chiliperper 2)extra honing 3)extra marshmallow 4)nee bedankt")
+            if topping=="4":
+                break
+            while topping not in {"1","2","3"}:
+                continue
+            thismelk.addingredient(topping=="1",topping=="2",topping=="3")
+
+        dezebestelling.insert(thismelk)
+        doonemore=input("wilt u nog eentje bestellen? 1)ja 2)nee")
+        while choco not in {"1", "2"}:
+            doonemore = input("wilt u nog eentje bestellen? 1)ja 2)nee")
+        if doonemore=="1":
+            continue
+        elif doonemore=="2":
+            break
+    return dezebestelling
 
 if __name__ =="__main__":
 
@@ -34,30 +119,30 @@ if __name__ =="__main__":
     worker=stack()
     bestellingen=queue()
 
+    print("Welkom to Quetzal")
     while True:
-        print("Welkom to Quetzal, 1)login with existing user id, 2)register")
-        command=input("please input command")
-        while command != 1 and command != 2:
+        time=0#currenttime reading
+        command=input("1)login with existing user id, 2)register")
+        while command != "1" and command != "2":
             print("please input a correct command")
             command = input(" 1)login with existing user id, 2)register")
-        if command==1:
-            username=input("please give me your username")
+        if command=="1":
+            username=input("please give me your emailadress")
             useraccount=user.retrieve(username)
             if useraccount!=None:
                 print("login succesful, going to the order menu now...")
-                ordermenu(useraccount)
+                dezebestelling=ordermenu(useraccount,time)
+                bestellingen.enqueue(bestelling)
             else:
                 print("this username doesn't exist, please check the capital letters and typos and try again, or register as a new user")
-                break
-        elif command==2:
+                continue
+        elif command=="2":
             print("registering new user")
             firstname=input("what's your first name?")
             lastname=input("what's your last name?")
             email=input("what's your email adress?")
-            adress= input("And your adress?")
-            username= input("which username do you want to use?")
             print("completing registration")
-            user.insert(username,gebruiker(firstname,lastname,email,adress,username))#need to be implemented
+            user.insert(username,gebruiker(firstname,lastname,email))#need to be implemented
             print("you can now login with your username")
-            break
+            continue
 

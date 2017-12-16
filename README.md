@@ -12,6 +12,6 @@ Pravesh:
 insert message
 
 Paul:
-insert
+srry ik ben net wakker dus en ik heb te veel anime gekeken dus ik heb nog niet zo veel
 
 zoda iedereen kan zien.. mss ni zo handig tho

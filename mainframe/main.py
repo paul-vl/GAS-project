@@ -1,5 +1,8 @@
 from adttabel import *
 #from gebruiker import *
+from multiprocessing import Process,SimpleQueue
+import threading
+import time
 
 class gebruiker:
     pass
@@ -33,8 +36,7 @@ class chocolademelk:
         self.bruin=bruin
         self.chilipeper=chilipeper
         self.honing=honing
-        self.marshmallow=marshmallow
-        self.prijs=1+zwart*1+wit*1+bruin*1+melk*1+marshmallow*0.75+chilipeper*0.25+honing*0.5
+        self.marshmallow=marshmallow+zwart*1+wit*1+bruin*1+melk*1+marshmallow*0.75+chilipeper*0.25+honing*0.5
 
     def addingredient(self,chiliperper=0,honing=0,marshmallow=0):
         self.chilipeper+=chiliperper
@@ -113,15 +115,22 @@ def ordermenu(account,time):
             break
     return dezebestelling
 
-if __name__ =="__main__":
 
-    user=tabel()
-    worker=stack()
+
+class Winkel:
+    werknemersbeschikbaar=stack()
     bestellingen=queue()
+    werknemers=tabel()
+    
 
+
+def userside(Queuetoinput,winkelsideinput):
+    winkel=Winkel()
+    user=tabel()
+    time.sleep(0.2)#assure that the winkelside begins first
     print("Welkom to Quetzal")
     while True:
-        time=0#currenttime reading
+        print(winkelsideinput.get())
         command=input("1)login with existing user id, 2)register")
         while command != "1" and command != "2":
             print("please input a correct command")
@@ -131,8 +140,8 @@ if __name__ =="__main__":
             useraccount=user.retrieve(username)
             if useraccount!=None:
                 print("login succesful, going to the order menu now...")
-                dezebestelling=ordermenu(useraccount,time)
-                bestellingen.enqueue(bestelling)
+                dezebestelling=ordermenu(useraccount,winkelsideinput.get())
+                Queuetoinput.put(dezebestelling)
             else:
                 print("this username doesn't exist, please check the capital letters and typos and try again, or register as a new user")
                 continue
@@ -142,7 +151,29 @@ if __name__ =="__main__":
             lastname=input("what's your last name?")
             email=input("what's your email adress?")
             print("completing registration")
-            user.insert(username,gebruiker(firstname,lastname,email))#need to be implemented
+            #user.insert(username,gebruiker(firstname,lastname,email))#need to be implemented
             print("you can now login with your username")
             continue
 
+def winkelside(winkelsideinput,userinput):
+    timestamp=0
+    counter=0
+    winkelsideinput.put(timestamp)
+    while True:
+        while counter<60:
+            print(counter)
+            winkelsideinput.empty()
+            winkelsideinput.put(timestamp)
+            time.sleep(1)
+            counter+=1
+        timestamp+=1
+
+
+
+if __name__=="__main__":
+    userinput=SimpleQueue()
+    winkelsideinput=SimpleQueue()
+    winkelsidefunction = threading.Thread(target=winkelside, args=(winkelsideinput,userinput))
+    usersidefunction= threading.Thread(target=userside, args=(userinput,winkelsideinput))#appearently process cannot handle the getting input part, just call thread on this one and process on the other one
+    winkelsidefunction.start()
+    usersidefunction.start()
